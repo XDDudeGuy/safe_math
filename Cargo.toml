@@ -1,10 +1,18 @@
 [package]
 name = "safe_math"
 version = "0.1.0"
-edition = "2023"
-authors = "xdDudeGuy"
+edition = "2021"
+authors = ["xdDudeGuy"]
 license = "GPL-3.0-only"
+description = "Math without overflow, creates 4 functions to mitigate any overflow while multiplying and adding, ONLY WORKS WITH i32 AND u32 NUMBERS"
+repository = "https://github.com/XDDudeGuy/safe_math"
+keywords = ["math"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+path = "src/safe_operations.rs"
+edition = "2021"
+crate-type = ["lib"]
 
 [dependencies]
