@@ -1,5 +1,5 @@
 // attempts to add two numbers, if the numbers cannot be added without an overflow the second input is returned
-fn safe_add(in_x: i32, in_y: i32) -> Result<i32, i32> {    
+pub fn safe_add(in_x: i32, in_y: i32) -> Result<i32, i32> {    
     let x: i64 = i64::from(in_x);
     let y: i64 = i64::from(in_y);
 
@@ -11,7 +11,7 @@ fn safe_add(in_x: i32, in_y: i32) -> Result<i32, i32> {
     };
 }
 // see safe_add
-fn u_safe_add(in_x: u32, in_y: u32) -> Result<u32, u32> {    
+pub fn u_safe_add(in_x: u32, in_y: u32) -> Result<u32, u32> {    
     let x: u64 = u64::from(in_x);
     let y: u64 = u64::from(in_y);
 
@@ -24,7 +24,7 @@ fn u_safe_add(in_x: u32, in_y: u32) -> Result<u32, u32> {
 }
 
 // attempts to multiply two numbers, if the numbers cannot be multiplied without an overflow the second input is returned
-fn safe_multiply(in_x: i32, in_y: i32) -> Result<i32, i32> {
+pub fn safe_multiply(in_x: i32, in_y: i32) -> Result<i32, i32> {
     let x: i64 = i64::from(in_x);
     let y: i64 = i64::from(in_y);
 
@@ -36,7 +36,7 @@ fn safe_multiply(in_x: i32, in_y: i32) -> Result<i32, i32> {
     };
 }
 
-fn u_safe_multiply(in_x: u32, in_y: u32) -> Result<u32, u32> {
+pub fn u_safe_multiply(in_x: u32, in_y: u32) -> Result<u32, u32> {
     let x: u64 = u64::from(in_x);
     let y: u64 = u64::from(in_y);
 
