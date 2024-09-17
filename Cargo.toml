@@ -1,10 +1,10 @@
 [package]
 name = "safe_math"
-version = "0.1.1"
+version = "0.2.0"
 edition = "2021"
 authors = ["xdDudeGuy"]
 license = "GPL-3.0-only"
-description = "Math without overflow, creates 4 functions to mitigate any overflow while multiplying and adding, ONLY WORKS WITH i32 AND u32 NUMBERS"
+description = "Math without overflow, creates 2 functions to mitigate any overflow while multiplying and adding"
 repository = "https://github.com/XDDudeGuy/safe_math"
 keywords = ["math"]
 
