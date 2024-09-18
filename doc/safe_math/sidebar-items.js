@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["safe_add","safe_multiply"]};
