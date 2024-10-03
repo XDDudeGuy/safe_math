@@ -1,19 +1,20 @@
 # Safe Math
 ## Math without overflow!
-Adds two functions ```safe_add()``` and ```safe_multiply()```
+Adds a macro and an enum ```safe_math!()``` and ```Operation```
 ### [src/safe_math.rs](https://github.com/XDDudeGuy/safe_math/blob/master/src/safe_operations.rs)
-#### safe_add():
+#### Operation:
 ```
-pub fn safe_add<T>(in_x: T, in_y: T) -> Result<i64, T> where
-  i128: From<T>,
-  T: Clone + Copy
+pub enum Operation {
+  ...
+}
 ```
-Takes two generic inputs of the same type, provided they are numbers or can be converted to 128 bit signed integers and implement the Copy trait, and adds them, if there is overflow it returns the larger of the two numbers in the Err Variant of the Result enum, __only works with numbers as large as signed 64 bit integers__.
+Has two variants Add and Multiply with no fields, used in the [safe_math!()](#safe_math) macro to determine whether you are adding or multiplying the inputted numbers
+#### safe_math!():
+```
+#[macro_export]
+macro_rules! safe_math! {
+  ($in_x:expr, $in_y:expr, $operation:expr)
+}
+```
+This takes three expression arguments, the first two being the numbers you wish to add and the third being the operation you wish to apply to the numbers whether that be addition or multiplication. The first two expressions should be below the unsigned 64 bit integer limit and the third should be a variant of the [Operation](#Operation) enum. Most errors will just return the larger of the two number input variables in the Err() variant of the Result enum
 
-#### safe_multiply():
-```
-pub fn safe_multiply<T>(in_x: T, in_y: T) -> Result<i64, T> where
-  i128: From<T>,
-  T: Clone + Copy
-```
-Does the same as [safe_add()](#safe_add) but instead of adding it multiplies
