@@ -22,19 +22,20 @@
     <nav id="TOC"><ul>
 <li><a href="#math-without-overflow">0.1 Math without overflow!</a><ul>
 <li><a href="#srcsafe_mathrs">0.1.1 <a href="https://github.com/XDDudeGuy/safe_math/blob/master/src/safe_operations.rs">src/safe_math.rs</a></a><ul>
-<li><a href="#safe_add">0.1.1.1 safe_add():</a><ul></ul></li>
-<li><a href="#safe_multiply">0.1.1.2 safe_multiply():</a><ul></ul></li></ul></li></ul></li></ul></nav><h2 id="math-without-overflow"><a class="doc-anchor" href="#math-without-overflow">§</a>0.1 Math without overflow!</h2>
-<p>Adds two functions <code>safe_add()</code> and <code>safe_multiply()</code></p>
-<h3 id="srcsafe_mathrs"><a class="doc-anchor" href="#srcsafe_mathrs">§</a>0.1.1 <a href="https://github.com/XDDudeGuy/safe_math/blob/master/src/safe_operations.rs">src/safe_math.rs</a></h3><h4 id="safe_add"><a class="doc-anchor" href="#safe_add">§</a>0.1.1.1 safe_add():</h4>
-<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">pub fn </span>safe_add&lt;T&gt;(in_x: T, in_y: T) -&gt; <span class="prelude-ty">Result</span>&lt;i64, T&gt; <span class="kw">where
-  </span>i128: From&lt;T&gt;,
-  T: Clone + Copy</code></pre></div>
-<p>Takes two generic inputs of the same type, provided they are numbers or can be converted to 128 bit signed integers and implement the Copy trait, and adds them, if there is overflow it returns the larger of the two numbers in the Err Variant of the Result enum, <strong>only works with numbers as large as signed 64 bit integers</strong>.</p>
-<h4 id="safe_multiply"><a class="doc-anchor" href="#safe_multiply">§</a>0.1.1.2 safe_multiply():</h4>
-<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">pub fn </span>safe_multiply&lt;T&gt;(in_x: T, in_y: T) -&gt; <span class="prelude-ty">Result</span>&lt;i64, T&gt; <span class="kw">where
-  </span>i128: From&lt;T&gt;,
-  T: Clone + Copy</code></pre></div>
-<p>Does the same as <a href="#safe_add">safe_add()</a> but instead of adding it multiplies</p>
+<li><a href="#operation">0.1.1.1 Operation:</a><ul></ul></li>
+<li><a href="#safe_math">0.1.1.2 safe_math!():</a><ul></ul></li></ul></li></ul></li></ul></nav><h2 id="math-without-overflow"><a class="doc-anchor" href="#math-without-overflow">§</a>0.1 Math without overflow!</h2>
+<p>Adds a macro and an enum <code>safe_math!()</code> and <code>Operation</code></p>
+<h3 id="srcsafe_mathrs"><a class="doc-anchor" href="#srcsafe_mathrs">§</a>0.1.1 <a href="https://github.com/XDDudeGuy/safe_math/blob/master/src/safe_operations.rs">src/safe_math.rs</a></h3><h4 id="operation"><a class="doc-anchor" href="#operation">§</a>0.1.1.1 Operation:</h4>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">pub enum </span>Operation {
+  ...
+}</code></pre></div>
+<p>Has two variants Add and Multiply with no fields, used in the <a href="#safe_math">safe_math!()</a> macro to determine whether you are adding or multiplying the inputted numbers</p>
+<h4 id="safe_math"><a class="doc-anchor" href="#safe_math">§</a>0.1.1.2 safe_math!():</h4>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="attr">#[macro_export]
+</span><span class="macro">macro_rules!</span> <span class="macro">safe_math!</span> {
+  (<span class="macro-nonterminal">$in_x</span>:expr, <span class="macro-nonterminal">$in_y</span>:expr, <span class="macro-nonterminal">$operation</span>:expr)
+}</code></pre></div>
+<p>This takes three expression arguments, the first two being the numbers you wish to add and the third being the operation you wish to apply to the numbers whether that be addition or multiplication. The first two expressions should be below the unsigned 64 bit integer limit and the third should be a variant of the <a href="#Operation">Operation</a> enum. Most errors will just return the larger of the two number input variables in the Err() variant of the Result enum</p>
 
     
 </body>
