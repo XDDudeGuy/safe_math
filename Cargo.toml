@@ -1,6 +1,6 @@
 [package]
 name = "safe_math"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 authors = ["xdDudeGuy"]
 license = "GPL-3.0-only"
