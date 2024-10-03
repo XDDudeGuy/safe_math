@@ -1,4 +1,3 @@
-/// This allows you to choose whether you are adding or multiplying in the safe_math!() macro
 pub enum Operation {
     Add,
     Multiply
