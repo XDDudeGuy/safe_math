@@ -49,8 +49,7 @@ macro_rules! safe_math {
                         }
                     }
                 }
-            }
-            else {
+            } else {
                 Result::Err(returned_value)
             }
         }
