@@ -12,9 +12,9 @@ Has two variants Add and Multiply with no fields, used in the [safe_math!()](#sa
 #### safe_math!():
 ```
 #[macro_export]
-macro_rules! safe_math! {
+macro_rules! safe_math {
   ($in_x:expr, $in_y:expr, $operation:expr)
 }
 ```
-This takes three expression arguments, the first two being the numbers you wish to add and the third being the operation you wish to apply to the numbers whether that be addition or multiplication. The first two expressions should be below the unsigned 64 bit integer limit and the third should be a variant of the [Operation](#Operation) enum. Most errors will just return the larger of the two number input variables in the Err() variant of the Result enum
+This takes three expression arguments, the first two being the numbers you wish to use and the third being the operation you wish to apply to the numbers whether that be addition or multiplication. The first two expressions should be below the unsigned 64 bit integer limit and the third should be a variant of the [Operation](#Operation) enum. Most errors will just return the larger of the two number input variables in the Err() variant of the Result enum
 

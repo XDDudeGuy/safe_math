@@ -1,12 +1,12 @@
 [package]
 name = "safe_math"
-version = "0.2.2"
+version = "1.0.3"
 edition = "2021"
 authors = ["xdDudeGuy"]
 license = "GPL-3.0-only"
-description = "Math without overflow, creates 2 functions to mitigate any overflow while multiplying and adding"
+description = "Math without overflow, creates an enum and a macro to help mitigate any overflow while multiplying and adding"
 repository = "https://github.com/XDDudeGuy/safe_math"
-keywords = ["math"]
+keywords = ["math", "overflow"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
