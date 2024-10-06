@@ -1,10 +1,21 @@
 /// Has two variants Add and Multiply with no fields, used in the safe_math!() macro
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Operation {
     Add,
     Multiply
 }
 
-///Takes three expressions, two number inputs and one variant of the enum Operation. It combines the two numbers in whatever way was chosen or in the case of most errors evaluates to the Err variant with the field containing the larger of the two input numerical expressions
+/// Allows conversion from bool to Operation and vice versa true means Add, false means Multiply
+impl From<bool> for Operation {
+    fn from(value: bool) -> Self {
+        match value {
+            true => Operation::Add,
+            false => Operation::Multiply
+        }
+    }
+}
+
+/// Takes three expressions, two number inputs and one variant of the enum Operation. It combines the two numbers in whatever way was chosen or in the case of most errors evaluates to the Err variant with the field containing the larger of the two input numerical expressions
 #[macro_export]
 macro_rules! safe_math {
     ($in_x:expr, $in_y:expr, $operation:expr) => {
