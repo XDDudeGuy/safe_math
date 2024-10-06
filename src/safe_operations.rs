@@ -1,6 +1,16 @@
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Operation {
     Add,
     Multiply
+}
+
+impl From<bool> for Operation {
+    fn from(value: bool) -> Self {
+        match value {
+            true => Operation::Add,
+            false => Operation::Multiply
+        }
+    }
 }
 
 #[macro_export]
