@@ -1,8 +1,10 @@
+/// Has two variants Add and Multiply with no fields, used in the safe_math!() macro
 pub enum Operation {
     Add,
     Multiply
 }
 
+///Takes three expressions, two number inputs and one variant of the enum Operation. It combines the two numbers in whatever way was chosen or in the case of most errors evaluates to the Err variant with the field containing the larger of the two input numerical expressions
 #[macro_export]
 macro_rules! safe_math {
     ($in_x:expr, $in_y:expr, $operation:expr) => {
