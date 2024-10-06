@@ -12,7 +12,7 @@ Has two variants Add and Multiply with no fields, used in the [safe_math!()](#sa
 #### safe_math!():
 ```
 #[macro_export]
-macro_rules! safe_math! {
+macro_rules! safe_math {
   ($in_x:expr, $in_y:expr, $operation:expr)
 }
 ```
