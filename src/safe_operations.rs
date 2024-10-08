@@ -25,7 +25,7 @@ macro_rules! safe_math {
                 error = true;
                 1
             };
-            if $in_x > 18446744073709551614_u64 || $in_y > 18446744073709551614_u64 {
+            if $in_x > 9223372036854775807 || $in_y > 9223372036854775807 {
                 _ = set_error();
             }
             let result_x: Result<i128, _> = i128::try_from($in_x);
