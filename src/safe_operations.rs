@@ -43,7 +43,7 @@ macro_rules! safe_math {
                 false => x
             };
             // looks like shit but I don't know how I could do it otherwise with the restrictions of macros
-            if error==false {
+            if !error {
                 match $operation {
                     Operation::Add => {
                         let sum: i128 = x+y;
