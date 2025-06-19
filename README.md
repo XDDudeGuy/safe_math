@@ -1,3 +1,4 @@
+# DEPRECATED! NEW VERSION [HERE](https://github.com/GotenJBZ/safe_math)
 # Safe Math
 ## Math without overflow!
 Adds a macro and an enum ```safe_math!()``` and ```Operation```

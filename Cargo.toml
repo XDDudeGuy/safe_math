@@ -1,6 +1,6 @@
 [package]
 name = "safe_math_legacy"
-version = "1.1.1"
+version = "1.1.2"
 edition = "2021"
 authors = ["xdDudeGuy"]
 license = "GPL-3.0-only"
